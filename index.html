@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Social Justice</title>
+    <link rel="stylesheet" href="common\css\card.css" type="text/css">
+    <link rel="stylesheet" href="common\css\navbar.css" type="text/css">
     <link href="./common/css/styling.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" type="image/x-icon" href="./common/imgs/logo.png">
@@ -19,20 +21,23 @@
 
 <body>
     <nav class="navbar middle">
-        <div class="home">
-            <i class='bx bx-menu'></i>
+        <div class="logo">
+            <a href="" aria-label="SJC Logo"></a>
         </div>
-        <ul class="navbar-nav">
-            <li>
-                <a href="#about" class="nav-link">About</a>
-            </li>
-            <li>
-                <a href="#events" class="nav-link">Upcoming Events</a>
-            </li>
-            <li>
-                <a href="#resources" class="nav-link">Additional Resources</a>
-            </li>
-        </ul>
+        <div class="menu-btn">
+            <i class='bx bx-menu menu-active'></i>
+        </div>
+        <div class="mbl-menu collapse">
+            <ul class="navbar-nav menu-nav-active">
+                <li><a class="nav-link" href="#about" aria-label="Link to about section">About</a></li>
+                <li><a class="nav-link" href="#events" aria-label="Link to events section">Upcoming Events</a></li>
+                <li><a class="nav-link" href="#resources" aria-label="Link to resources section">Additional
+                        Resources</a></li>
+                <li>
+                    <div aria-label="Close menu button" class="menu-btn-expanded nav-link">X Close</div>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <div class="header middle">
@@ -49,7 +54,6 @@
 
 
     <div class="about-section info middle" id="about">
-
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestiae.</p>
     </div>
 
@@ -58,10 +62,49 @@
     </div>
 
     <div class="resources-section info middle" id="resources">
-        <section class="resources container">
-
-        </section>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, provident?</p>
+        <h1>Addtional Resources</h1>
+        <section class="resources">
+            <div class="card">
+                <h1> Aboriginal Justice Strategy</h1>
+                <div class="cover">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!</p>
+                    <a rel="noreferrer noopener" href="" tabindex="-1">Learn More Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <h1> Canadian Woman</h1>
+                <div class="cover">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error blanditiis rerum accusantium
+                        velit. Possimus, aliquid cumque veritatis quam fugiat aliquam reiciendis in velit voluptatem,
+                        expedita commodi provident, exercitationem eligendi dolores!</p>
+                    <a rel="noreferrer noopener" href="" tabindex="-1">Learn More Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <h1> Toronto Centre NDP</h1>
+                <div class="cover">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis minima iure saepe molestiae
+                        quisquam deserunt porro quo ab nulla neque quam animi, nam vero earum expedita dolorem quod,
+                        itaque enim.</p>
+                    <a rel="noreferrer noopener" href="" tabindex="-1">Learn More Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <h1> Global News</h1>
+                <div class="cover">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!</p>
+                    <a rel="noreferrer noopener" href="" tabindex="-1">Learn More Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <h1> Aboriginal Justice Strategy</h1>
+                <div class="cover">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!</p>
+                    <a rel="noreferrer noopener" href="" tabindex="-1">Learn More Here</a>
+                </div>
+            </div>
+    </div>
+    </section>
     </div>
 
 
@@ -78,7 +121,7 @@
             </div>
         </section>
     </footer>
-    <script src="./common/js/app.js"></script>
+    <script defer src="./common/js/app.js"></script>
 </body>
 
 </html>

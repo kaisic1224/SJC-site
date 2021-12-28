@@ -1,0 +1,121 @@
+:root {
+    --clr-light-100: hsl(180, 100%, 100%);
+    --clr-light-150: hsl(39, 41%, 74%);
+    --clr-accent-300: hsl(347, 90%, 63%);
+    --clr-accent-350: hsl(347, 60%, 40%);
+    --clr-neutral-400: hsl(0, 0%, 54%);
+    --clr-neutral-500: hsl(240, 59%, 55%);
+    --clr-dark-700: hsl(240, 55%, 41%);
+    --clr-dark-800: hsl(239, 57%, 33%);
+    --clr-dark-900: hsl(240, 59%, 25%);
+}
+
+
+.logo {
+    visibility: hidden;
+    background: url('/common/imgs/logo1.png') ;
+    height: 168px;
+    width: 186px;
+    z-index: 25;
+    cursor: pointer;
+}
+
+.navbar {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 345px;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    font-family: sans-serif;
+    font-weight: 700;
+    color: var(--clr-accent-350);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--clr-accent-300);
+}
+
+
+/*----------------------------------- MOBILE MENU DESIGN -------------------------------- */
+
+@media (max-width: 992px) {
+    .mbl-menu {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        background-color: var(--clr-dark-900);
+    }
+
+    .bx-menu {
+        font-size: 3rem;
+        color: var(--clr-accent-300);
+    }
+
+    .navbar-nav li {
+        padding: 1.25rem;
+    }
+
+    
+    .active .navbar-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mbl-menu.collapse {
+        height: 0px;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        transition-property: height;
+        
+        transition: all 550ms ease;
+    }
+
+    .mbl-menu.active {
+        height: 16rem;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        z-index: 9999;
+        transition: all 550ms ease;
+    }
+
+    .menu-btn-expanded {
+        margin-top: .75rem;
+    }
+}
+
+
+
+@media (min-width: 993px) {
+
+    .bx-menu {
+        display: none !important;
+    }
+
+    .navbar-nav {
+        display: flex;
+    }
+
+    .menu-btn-expanded {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+    
+}

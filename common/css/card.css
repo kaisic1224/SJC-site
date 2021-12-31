@@ -31,14 +31,6 @@
     grid-auto-rows: 1fr;
 }
 
-.resources-section h1:not(.card h1)
-{
-    text-align: center;
-    margin-bottom: 4rem;
-    color: var(--clr-light-150);
-    font-size: 1.75em;
-}
-
 .card:nth-child(odd){
     color: var(--clr-light-150);
 }

@@ -6,16 +6,20 @@
     // MAYBE DATABASE ???
 
     const menu = document.querySelector('.menu-btn');
-    const openMenu = document.querySelector('.menu-btn-expanded')
+    const openMenu = document.querySelector('.menu-btn-expanded');
+    const mblMenu = document.querySelector('.mbl-menu');
+    const links = document.querySelectorAll('.nav-link');
+
+
 
     menu.addEventListener('click', () => {
-        document.querySelector('.mbl-menu').classList.toggle('active');
-        document.querySelector('.mbl-menu').classList.toggle('collapse');
+        mblMenu.classList.toggle('active');
+        mblMenu.classList.toggle('collapse');
     });
 
     openMenu.addEventListener('click', () => {
-        document.querySelector('.mbl-menu').classList.toggle('collapse');
-        document.querySelector('.mbl-menu').classList.toggle('active');
-    })
+        mblMenu.classList.toggle('collapse');
+        mblMenu.classList.toggle('active');
+    });
 
 }(typeof window != "undefined" ? window : this))

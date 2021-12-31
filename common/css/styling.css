@@ -61,18 +61,20 @@ html {
 .info {
     font-size: 2.5rem;
     color: var(--clr-neutral-400);
-    width: 345px;
-
 }
+
+.info h1:not(.card h1)
+{
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--clr-light-150);
+    font-size: 1.5em;
+}
+
 
 /*----------------------------------------------- HEADER ------------------------------------------------*/
 
-.header {
-    width: 345px;
-}
-
 .header * {
-    max-width: 309px;
     text-transform: uppercase;
     color: var(--clr-light-100);
     font-size: min(5rem, 10vh);
@@ -136,6 +138,10 @@ html {
     font-size: 2rem;
 }
 
+.footer h6 {
+    color: var(--clr-light-150);
+    font-size: 1rem;
+}
 
 .contact-footer {
     position: relative;
@@ -169,11 +175,18 @@ html {
 /*------------------------------------------ MEDIA QUERIES --------------------------------------------*/
 
 
-@media (min-width: 450px) {
-    
-    .header * {
-        max-width: none;
+@media (max-width: 992px) {
+    .header {
+        text-align: center;
     }
+
+    .info p:not(.card p) {
+        text-align: center;
+    }
+}
+
+
+@media (min-width: 450px) {
 
     .header {
         margin-top: min(80px, 11vw);
@@ -225,6 +238,10 @@ html {
         position: absolute;
         right: 50px;
         top: 0px;
+    }
+
+    .info p:not(.card p) {
+        text-align: left;
     }
 }
 

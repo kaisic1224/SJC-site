@@ -25,8 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
-    width: 345px;
+    height: min(22vw, 100px);
 }
 
 .navbar-nav {
@@ -41,6 +40,7 @@
     color: var(--clr-accent-350);
     text-decoration: none;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -54,6 +54,8 @@
     .mbl-menu {
         width: 100%;
         position: absolute;
+        top: 0;
+        left: 0;
         text-align: center;
         background-color: var(--clr-dark-900);
     }
@@ -61,13 +63,13 @@
     .bx-menu {
         font-size: 3rem;
         color: var(--clr-accent-300);
+        cursor: pointer;
     }
 
     .navbar-nav li {
         padding: 1.25rem;
     }
 
-    
     .active .navbar-nav {
         display: flex;
         flex-direction: column;
@@ -75,24 +77,20 @@
 
     .mbl-menu.collapse {
         height: 0px;
-        left: 0;
-        top: 0;
         overflow: hidden;
-        transition-property: height;
         
         transition: all 550ms ease;
     }
 
     .mbl-menu.active {
         height: 16rem;
-        left: 0;
-        top: 0;
         overflow: hidden;
         z-index: 9999;
         transition: all 550ms ease;
     }
 
     .menu-btn-expanded {
+        display: inline-block;
         margin-top: .75rem;
     }
 }
@@ -115,7 +113,10 @@
 
     .nav-link {
         font-size: 14px;
-        padding: 0 20px;
     }
     
+    .navbar-nav li {
+        padding: 0 20px;
+    }
+
 }

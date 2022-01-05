@@ -19,7 +19,6 @@
 }
 
 
-/*NEED TO MAKE PADDING AROUND EDGE OF CARDS FOR THE TEXT THAT EXCEEDS */
 
 /*------------------------------------------------- RESOURCE CARDS ------------------------------------------------*/
 
@@ -49,6 +48,7 @@
     overflow: hidden;
     isolation: isolate;
     justify-self: center;
+    transition: all 250ms ease;
 }
 
 .card::after {
@@ -62,14 +62,14 @@
     z-index: -1;
 }
 
-.card h1, .card p, .card a {
+.card :is(p, h1, a) {
     padding: 1.35rem;
 }
 
 .card h1
 {
     max-width: 11ch;
-    min-height: 184px;
+    min-height: 187.19px;
 }
 
 .cover p {
@@ -90,24 +90,32 @@
 }
 
 .cover {
+    position: relative;
     background: linear-gradient(var(--clr-dark-900), 20%, black);
     opacity: .5;
     height: 100%;
     z-index: 25;
-    transition: transform 250ms ease;
+    transition: all 250ms ease !important;
 }
 
 .card:hover .cover {
     background: linear-gradient(var(--clr-dark-900), 30%, black);
-    transform: translateY(-40%);
-    transition: transform 250ms ease;
+    transform: translateY(-43%);
+    transition: all 250ms ease;
     overflow-y: auto;
     opacity: .9;
 }
 
+.card:hover {
+    will-change: transform;
+    transform: scale(1.02);
+    box-shadow: 0 20px 25px hsla(0, 0%, 0%, 0.432);
+    transition: all 250ms ease !important;
+}
+
 .cover a {
     display: inline-block;
-    margin: 5rem auto 1.25rem auto;
+    margin: 4rem auto 1rem auto;
     opacity: 1 !important;
     color: var(--clr-accent-300);
 }
@@ -129,7 +137,7 @@
     }
 
     .card:hover .cover {
-        transform: translateY(-40%);
+        transform: translateY(-42%);
     }
 
 
@@ -165,7 +173,11 @@
     
     .card:hover .cover
     {
-        transform: translateY(-40%);
+        transform: translateY(-42%);
+    }
+
+    .card:hover { 
+        transform: scale(1.05);
     }
 
 }

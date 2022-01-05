@@ -60,7 +60,7 @@
         background-color: var(--clr-dark-900);
     }
 
-    .bx-menu {
+    .menu-btn {
         font-size: 3rem;
         color: var(--clr-accent-300);
         cursor: pointer;

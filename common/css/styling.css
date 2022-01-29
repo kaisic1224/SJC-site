@@ -22,20 +22,17 @@ body {
     background: var(--clr-dark-800);
 }
 
-:is(body, .cover)::-webkit-scrollbar
-{
+:is(body, .cover)::-webkit-scrollbar {
     width: 12px;
     background-color: var(--clr-dark-900);
 }
 
-:is(body, .cover)::-webkit-scrollbar-thumb
-{
+:is(body, .cover)::-webkit-scrollbar-thumb {
     background-color: var(--clr-neutral-500);
     border-radius: 10px;
 }
 
-:is(body, .cover)::-webkit-scrollbar-thumb:hover
-{
+:is(body, .cover)::-webkit-scrollbar-thumb:hover {
     background-color: var(--clr-dark-700);
 }
 
@@ -43,41 +40,50 @@ html {
     scroll-behavior: smooth;
 }
 
+:-webkit-any(article, aside, nav, section)
+    :-webkit-any(article, aside, nav, section)
+    h1 {
+    font-size: 1.5em;
+}
 
+img {
+    display: block;
+    max-width: 100%;
+}
 
 /*-------------------------------------------- UTILITY CLASSES ------------------------------------------*/
 
 .middle {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    padding-inline: 1rem;
+    margin-inline: auto;
 }
 
 .info {
     font-size: 2.5rem;
     color: var(--clr-neutral-400);
     scroll-margin-top: 3rem;
-    margin-bottom: 10rem;
+    margin-bottom: 15rem;
+    text-align: center;
 }
 
-
-/*custom variable calc root margin for cards
-UPDATE: FIX NTH CHILD SO CAN BE RESPONSIVE AND FLEXIBLE ACROSS ALL PAGES*/
-
-
 .fade-in-up {
+    --delay: ;
     opacity: 0;
-    transform: translateY(2rem);
-    transition: calc(min(var(--order, 4), 5.5) * 100ms) ease-in;
+    transform: translateY(4rem);
+    transition: calc(min(var(--order, 4), 5) * 100ms) ease-in;
+    transition-delay: calc(var(--delay, 0) * 100ms);
 }
 
 .fade-in-up.appear {
     opacity: 1;
-    transform: translateY(-1rem);
+    transform: translateY(-2rem);
 }
 
 /*----------------------------------------------- HEADER ------------------------------------------------*/
+
+.header {
+    margin-top: min(80px, 10vw);
+}
 
 .header * {
     text-transform: uppercase;
@@ -87,12 +93,14 @@ UPDATE: FIX NTH CHILD SO CAN BE RESPONSIVE AND FLEXIBLE ACROSS ALL PAGES*/
 }
 
 .header p {
+    --delay: 2;
     color: var(--clr-neutral-400);
     font-size: 2rem !important;
     text-transform: none !important;
 }
 
 .header-button {
+    --delay: 4.5;
     margin-top: 0px;
     margin-left: 0px;
 }
@@ -110,13 +118,13 @@ UPDATE: FIX NTH CHILD SO CAN BE RESPONSIVE AND FLEXIBLE ACROSS ALL PAGES*/
 
 .learn-more a {
     all: unset;
+    padding: 1em;
 }
 
 .header-img {
+    --delay: 3.5;
     display: none;
 }
-
-
 
 /* vmin font size*/
 
@@ -126,28 +134,25 @@ UPDATE: FIX NTH CHILD SO CAN BE RESPONSIVE AND FLEXIBLE ACROSS ALL PAGES*/
     margin-top: 357px;
 }
 
-.info h1:not(.card h1)
-{
+.info h1:not(.resource-card h1) {
     text-align: center;
-    margin-bottom: 4rem;
-    color: var(--clr-light-150);
+    margin-bottom: 2rem;
+    color: var(--clr-light-100);
     font-size: 1.5em;
 }
 
 /*------------------------------------------------ FOOTER ------------------------------------------------*/
 
 .footer {
-    
     background-color: var(--clr-dark-700);
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
     text-align: center;
     padding: 1.5rem 0;
     bottom: 0;
     right: 0;
     display: block;
 }
-
 
 .footer h1 {
     color: var(--clr-light-100);
@@ -169,81 +174,92 @@ UPDATE: FIX NTH CHILD SO CAN BE RESPONSIVE AND FLEXIBLE ACROSS ALL PAGES*/
 }
 
 .contact-footer::before {
-    content: '';
+    content: "";
     position: absolute;
-    width: 55%;
+    width: 55vw;
     height: 3px;
     background-color: var(--clr-neutral-400);
     top: -2rem;
 }
 
-.contact-item *, .contact-item:visited * {
+.contact-item *,
+.contact-item:visited * {
     color: var(--clr-accent-350);
-    font-size: 3rem;
 }
 
-.contact-item *:focus, .contact-item *:hover {
+.contact-item *:focus,
+.contact-item *:hover {
     outline: none;
-    color: var(--clr-accent-300);
+    fill: var(--clr-accent-300) !important;
 }
-
 
 /*------------------------------------------ MEDIA QUERIES --------------------------------------------*/
 
-
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     .header {
-        text-align: center;
-    }
-
-    .info p:not(.card p) {
         text-align: center;
     }
 }
 
-
 @media (min-width: 450px) {
-
     .header {
-        margin-top: min(80px, 11vw);
         max-width: none;
         text-align: center;
     }
 
-    .info, .header, .navbar {
+    .info,
+    .header,
+    .navbar {
         width: unset;
     }
 }
 
 @media (min-width: 992px) {
-
     .header * {
         max-width: 309px;
     }
 
     .header {
-        margin-top: 0px;
         position: relative;
         text-align: left;
     }
 
-    .navbar, .info, .header {
+    .navbar,
+    .info,
+    .header {
         width: 970px;
     }
 
-    .learn-more::after {
-        content: '';
+    .learn-more span {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        border: .5px solid var(--clr-light-100);
-        border-radius: 10px;
-        top: 10px;
-        left: 10px;
-        z-index: -1;
+        background-color: pink;
+        border-radius: 12px;
     }
 
-    .header-img, .header-img img {
+    .learn-more::after {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        content: "";
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        border: 2px solid var(--clr-neutral-400);
+        border-radius: 12px;
+        z-index: -2;
+        transition: border 250ms, transform 250ms ease;
+    }
+
+    .learn-more:hover::after {
+        border: 2px solid var(--clr-light-100);
+    }
+
+    .learn-more:active::after {
+        border: 2px solid var(--clr-light-100);
+        transform: translate(-10px, -10px);
+    }
+
+    .header-img,
+    .header-img img {
         width: 350px;
         margin-top: 0px;
         max-width: none;
@@ -255,14 +271,9 @@ UPDATE: FIX NTH CHILD SO CAN BE RESPONSIVE AND FLEXIBLE ACROSS ALL PAGES*/
         right: 50px;
         top: 0px;
     }
-
-    .info p:not(.card p) {
-        text-align: left;
-    }
 }
 
 @media (min-width: 1200px) {
-
     .header {
         margin-top: 100px;
     }
@@ -271,7 +282,9 @@ UPDATE: FIX NTH CHILD SO CAN BE RESPONSIVE AND FLEXIBLE ACROSS ALL PAGES*/
         max-width: 700px;
     }
 
-    .navbar, .header, .info {
+    .navbar,
+    .header,
+    .info {
         width: 1170px;
     }
 }

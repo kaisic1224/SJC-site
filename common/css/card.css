@@ -18,10 +18,7 @@
     padding: 0;
 }
 
-
-
-/*------------------------------------------------- RESOURCE CARDS ------------------------------------------------*/
-
+/*------------------------------------------------- RESOURCE resource-cardS ------------------------------------------------*/
 
 .resources {
     display: grid;
@@ -30,11 +27,19 @@
     grid-auto-rows: 1fr;
 }
 
-.card:nth-child(odd){
-    color: var(--clr-light-150);
+.resource-card:nth-child(3n-2) {
+    --order: 1;
 }
 
-.card {
+.resource-card:nth-child(3n-1) {
+    --order: 3;
+}
+
+.resource-card:nth-child(3n) {
+    --order: 5;
+}
+
+.resource-card {
     position: relative;
     font-size: 1.75rem;
     font-family: sans-serif;
@@ -44,15 +49,16 @@
 
     max-width: 25rem;
     max-height: 27.5rem;
-    
+
     overflow: hidden;
     isolation: isolate;
     justify-self: center;
     transition: all 250ms ease;
+    text-align: left;
 }
 
-.card::after {
-    content: '';
+.resource-card::after {
+    content: "";
     position: absolute;
     left: 2px;
     top: 40%;
@@ -62,12 +68,11 @@
     z-index: -1;
 }
 
-.card :is(p, h1, a) {
+.resource-card :is(p, h1, a) {
     padding: 1.35rem;
 }
 
-.card h1
-{
+.resource-card h1 {
     max-width: 11ch;
     min-height: 187.19px;
 }
@@ -83,7 +88,7 @@
     max-height: calc(1.3em * var(--max-lines));
 }
 
-.card:hover .cover p {
+.resource-card:hover .cover p {
     display: block;
     text-overflow: unset;
     max-height: unset;
@@ -92,21 +97,21 @@
 .cover {
     position: relative;
     background: linear-gradient(var(--clr-dark-900), 20%, black);
-    opacity: .5;
+    opacity: 0.5;
     height: 100%;
     z-index: 25;
     transition: all 250ms ease !important;
 }
 
-.card:hover .cover {
+.resource-card:hover .cover {
     background: linear-gradient(var(--clr-dark-900), 30%, black);
+    overflow-y: auto;
+    opacity: 0.9;
     transform: translateY(-43%);
     transition: all 250ms ease;
-    overflow-y: auto;
-    opacity: .9;
 }
 
-.card:hover {
+.resource-card:hover {
     will-change: transform;
     transform: scale(1.02);
     box-shadow: 0 20px 25px hsla(0, 0%, 0%, 0.432);
@@ -120,66 +125,59 @@
     color: var(--clr-accent-300);
 }
 
-
 @media (min-width: 450px) {
-    
-    .card::after {
+    .resource-card::after {
         visibility: hidden;
     }
 
-    .card p {
+    .cover p {
         --max-lines: 5;
         font-size: 2rem;
     }
 
     .cover {
-        transform: translateY(10%);
+        transform: translateY(5%);
     }
 
-    .card:hover .cover {
+    .resource-card:hover .cover {
         transform: translateY(-42%);
     }
-
-
 }
 
 @media (max-width: 712px) {
-    .card {
+    .resource-card {
         max-width: 27.625rem;
         margin: 0 auto;
     }
 
-    .card h1
-    {
+    .cover p {
+        min-height: 211px;
+    }
+    .resource-card h1 {
         max-width: unset;
     }
 }
 
-@media(min-width: 713px){
-    .resources
-    {
+@media (min-width: 713px) {
+    .resources {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .card::after
-    {
-        visibility:visible;
+    .resource-card::after {
+        visibility: visible;
     }
 
-    .cover
-    {
+    .cover {
         transform: translateY(5%);
     }
-    
-    .card:hover .cover
-    {
+
+    .resource-card:hover .cover {
         transform: translateY(-42%);
     }
 
-    .card:hover { 
+    :is(.resource-card, .event-card):hover {
         transform: scale(1.05);
     }
-
 }
 
 @media (min-width: 1200px) {
